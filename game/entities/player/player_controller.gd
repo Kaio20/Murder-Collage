@@ -15,7 +15,9 @@ onready var cam: Camera = get_node(cam_path)
 onready var raycast = get_node("Head/Camera/RayCast")
 signal hitting_object(collider)
 signal set_UItexts(text,description,museum)
-#var area = get_tree().get_root().find_parent("Area")
+var collider_titel  = "last attempt 111"
+var collider_description  = "last attempt 222"
+var collider_museum  = "last attempt 333"
 
 
 # Move
@@ -50,8 +52,6 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	cam.fov = FOV
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:
 	move_axis.x = 1 
@@ -68,12 +68,25 @@ func _process(_delta: float) -> void:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 	#	print(collider.get_class())
-		if collider.get_class() == "Area":
-	#		print("true")
 	
+		
+		if collider.get_class() == "Area":
+			
+				#		print("true")
 			if (Input.is_action_pressed("leftclick")):
-				emit_signal("hitting_object",collider)
-			#	print(collider.name)
+				collider_titel = collider.get("titel")
+				collider_description = collider.get("description")
+				collider_museum = collider.get("museum")
+				
+				print(collider_titel)
+				emit_signal("set_UItexts",collider_titel, collider_description, collider_museum)
+#				if collider.has_signal("hitting_object",collider):
+#					collider.emit_signal("hitting_object",collider)
+#				else:
+#					self.connect("hitting_object", collider, "_on_Player_hitting_object(collider)")
+					
+		
+							#	print(collider.name)
 				UMG.visible = true
 		else: 
 			UMG.visible = false
@@ -214,15 +227,10 @@ func can_sprint() -> bool:
 		
 
 
-func _on_Area_set_attribut(new_text,new_description,new_museum):
-	print(new_text)
-	print("Heyyoushould")
-	emit_signal("set_UItexts",new_text,new_description,new_museum)
-	pass # Replace with function body.
+#func _on_Area_set_attribut(new_text,new_description,new_museum):
+#	print(new_text)
+#	print("Heyyoushould")
+#	emit_signal("set_UItexts",new_text,new_description,new_museum)
+#	pass # Replace with function body.
+#
 
-
-func _on_Area2_set_attribut(new_text, new_description, new_museum):
-		print(new_text)
-		print("Heyyoushould")
-		emit_signal("set_UItexts",new_text,new_description,new_museum)
-		pass # Replace with function body.

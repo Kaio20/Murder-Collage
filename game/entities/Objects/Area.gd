@@ -32,10 +32,10 @@ func _on_Player_hitting_object(collider):
 	if collider.name == self.name:
 		print(collider.name)
 		print(self.name)
-	#	emit_signal("set_attribut", titel, description, museum)
+		emit_signal("set_attribut", titel, description, museum)
 		
-		global.titel = titel
-#	print(self)
+		Global.titel = titel
+	#	print(self)
 #	if collider == self:
 
 #,titel,description,museum
