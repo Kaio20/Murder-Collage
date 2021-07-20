@@ -162,6 +162,5 @@ museum = "HHAHA"
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.65369, 2.35962, -10.4982 )
 titel = "FUCK OFF"
 
-[connection signal="hitting_object" from="Player" to="Area" method="_on_Player_hitting_object"]
 [connection signal="set_attribut" from="Area" to="Player" method="_on_Area_set_attribut"]
 [connection signal="set_attribut" from="Area2" to="Player" method="_on_Area2_set_attribut"]

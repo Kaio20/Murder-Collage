@@ -13,11 +13,12 @@ var mouse_axis := Vector2()
 onready var head: Spatial = get_node(head_path)
 onready var cam: Camera = get_node(cam_path)
 onready var raycast = get_node("Head/Camera/RayCast")
-signal hitting_object(collider)
+# signal hitting_object(collider)
 signal set_UItexts(text,description,museum)
 var collider_titel  = "last attempt 111"
 var collider_description  = "last attempt 222"
 var collider_museum  = "last attempt 333"
+var collider_pressed : Object
 
 
 # Move
@@ -74,20 +75,23 @@ func _process(_delta: float) -> void:
 			
 				#		print("true")
 			if (Input.is_action_pressed("leftclick")):
-				collider_titel = collider.get("titel")
-				collider_description = collider.get("description")
-				collider_museum = collider.get("museum")
 				
-				print(collider_titel)
-				emit_signal("set_UItexts",collider_titel, collider_description, collider_museum)
-#				if collider.has_signal("hitting_object",collider):
-#					collider.emit_signal("hitting_object",collider)
-#				else:
-#					self.connect("hitting_object", collider, "_on_Player_hitting_object(collider)")
+				if not collider_pressed == collider:
+				
+					collider_titel = collider.get("titel")
+					collider_description = collider.get("description")
+					collider_museum = collider.get("museum")
 					
-		
-							#	print(collider.name)
-				UMG.visible = true
+					print(collider_titel)
+					emit_signal("set_UItexts",collider_titel, collider_description, collider_museum)
+	#				if collider.has_signal("hitting_object",collider):
+	#					collider.emit_signal("hitting_object",collider)
+	#				else:
+	#					self.connect("hitting_object", collider, "_on_Player_hitting_object(collider)")
+						
+					collider_pressed = collider
+								#	print(collider.name)
+					UMG.visible = true
 		else: 
 			UMG.visible = false
 		pass
