@@ -40,15 +40,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:
-	move_axis.x = Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
-	move_axis.y = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	move_axis.x = 1 
+	move_axis.y = 1 
 
 
 # Called every physics tick. 'delta' is constant
 func _physics_process(delta: float) -> void:
-	if flying:
-		fly(delta)
-	else:
 		walk(delta)
 
 
@@ -58,44 +55,29 @@ func _input(event: InputEvent) -> void:
 		mouse_axis = event.relative
 		camera_rotation()
 
-
 func walk(delta: float) -> void:
 	# Input
 	direction = Vector3()
 	direction = get_global_transform().basis.z *-1
-#	direction = Vector3()
-##""""	var aim: Basis = get_global_transform().basis
-##	if move_axis.x >= 0.5:
-##		direction -= aim.z
-##	if move_axis.x <= -0.5:
-##		direction += aim.z
-##	if move_axis.y <= -0.5:
-##		direction -= aim.x
-##	if move_axis.y >= 0.5:
-##		direction += aim.x
-##	direction.y = 0 """
-	
+	direction.y = 0 
 	direction = direction.normalized()
 	
-	# Jump
 	var _snap: Vector3
-	if is_on_floor():
-		_snap = Vector3.DOWN
-		if Input.is_action_just_pressed("move_jump"):
-			_snap = Vector3.ZERO
-			velocity.y = jump_height
+	_snap = Vector3.DOWN
+
 	
 	# Apply Gravity
 	velocity.y -= gravity * delta
 	
-	# Sprint
+	# Move Forward
 	var _speed: int
-	if (Input.is_action_pressed("move_sprint") and can_sprint()  and move_axis.x >= 0.5):
-		_speed = sprint_speed
+	if (Input.is_action_pressed("move_rightclick")):
+		_speed = walk_speed
 		cam.set_fov(lerp(cam.fov, FOV * 1.05, delta * 8))
 		sprinting = true
+		print("What the fuck")
 	else:
-		_speed = walk_speed
+		_speed = 0
 		cam.set_fov(lerp(cam.fov, FOV, delta * 8))
 		sprinting = false
 	
