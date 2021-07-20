@@ -164,7 +164,7 @@ func camera_rotation() -> void:
 		
 		# Clamp mouse rotation
 		var temp_rot: Vector3 = head.rotation_degrees
-		temp_rot.x = clamp(temp_rot.x, -90, 90)
+		temp_rot.x = clamp(temp_rot.x, -50, 40)
 		head.rotation_degrees = temp_rot
 
 func can_sprint() -> bool:
