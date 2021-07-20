@@ -73,9 +73,8 @@ func walk(delta: float) -> void:
 	var _speed: int
 	if (Input.is_action_pressed("move_rightclick")):
 		_speed = walk_speed
-		cam.set_fov(lerp(cam.fov, FOV * 1.05, delta * 8))
+		cam.set_fov(lerp(cam.fov, FOV * 1.03, delta * 8))
 		sprinting = true
-		print("What the fuck")
 	else:
 		_speed = 0
 		cam.set_fov(lerp(cam.fov, FOV, delta * 8))
@@ -117,14 +116,6 @@ func fly(delta: float) -> void:
 	# Input
 	direction = Vector3()
 	var aim = head.get_global_transform().basis
-	if move_axis.x >= 0.5:
-		direction -= aim.z
-	if move_axis.x <= -0.5:
-		direction += aim.z
-	if move_axis.y <= -0.5:
-		direction -= aim.x
-	if move_axis.y >= 0.5:
-		direction += aim.x
 	direction = direction.normalized()
 	
 	# Acceleration and Deacceleration
