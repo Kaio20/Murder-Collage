@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/player/player_controller.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/UI_museum.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.6
@@ -31,3 +32,7 @@ far = 250.0
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collide_with_areas = true
+
+[node name="UI_museum_scene" parent="." instance=ExtResource( 2 )]
+
+[connection signal="set_UItexts" from="." to="UI_museum_scene" method="_on_Player_set_UItexts"]

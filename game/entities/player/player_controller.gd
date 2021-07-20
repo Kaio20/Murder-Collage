@@ -1,6 +1,7 @@
 extends KinematicBody
 
 ###################-VARIABLES-####################
+onready var UMG = get_node("UI_museum_scene")
 
 # Camera
 export(float) var mouse_sensitivity = 12.0
@@ -12,7 +13,8 @@ var mouse_axis := Vector2()
 onready var head: Spatial = get_node(head_path)
 onready var cam: Camera = get_node(cam_path)
 onready var raycast = get_node("Head/Camera/RayCast")
-signal hitting_object()
+signal hitting_object(collider)
+signal set_UItexts(text,description,museum)
 
 # Move
 var velocity := Vector3()
@@ -53,22 +55,33 @@ func _process(_delta: float) -> void:
 	move_axis.x = 1 
 	move_axis.y = 1 
 	
-	var mouse_position = get_viewport().get_mouse_position()
+#	var mouse_position = get_viewport().get_mouse_position()
 #	var space_state = get_world().direct_space_state
 
-	if (Input.is_action_pressed("leftclick")):
-		var from = cam.project_ray_origin(mouse_position)
-		var to = from + cam.project_ray_normal(mouse_position) * raylength
+
+		#var from = cam.project_ray_origin(mouse_position)
+		#var to = from + cam.project_ray_normal(mouse_position) * raylength
 
 #
-		if raycast.is_colliding():
-			var collider = raycast.get_collider()
-		#	print(collider.get_class())
-			if collider.get_class() == "Area":
-				print("true")
-				emit_signal("hitting_object")
-				
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+	#	print(collider.get_class())
+		if collider.get_class() == "Area":
+	#		print("true")
+	
+			if (Input.is_action_pressed("leftclick")):
+				emit_signal("hitting_object",collider)
+			#	print(collider.name)
+				UMG.visible = true
+		else: 
+			UMG.visible = false
 		pass
+		#	get_node("GUI").get_node("Thanks").visible = true
+	else :
+		UMG.visible = false
+		print("be gone")
+		
+	pass
 		
 		
 	#	raycast.collide_with_areas
@@ -157,7 +170,6 @@ func walk(delta: float) -> void:
 func fly(delta: float) -> void:
 	# Input
 	direction = Vector3()
-	var aim = head.get_global_transform().basis
 	direction = direction.normalized()
 	
 	# Acceleration and Deacceleration
@@ -198,3 +210,10 @@ func can_sprint() -> bool:
 #
 #		print("Hi")
 		
+
+
+func _on_Area_set_attribut(new_text,new_description,new_museum):
+	print(new_text)
+	print("Heyyoushould")
+	emit_signal("set_UItexts",new_text,new_description,new_museum)
+	pass # Replace with function body.
