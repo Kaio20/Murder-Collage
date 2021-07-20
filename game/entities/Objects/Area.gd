@@ -16,8 +16,11 @@ func _ready():
 #	pass
 
 
-func _on_Area_input_event(camera, event, click_position, click_normal, shape_idx):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed == true:
-		print("ups")
+
 	
+	pass # Replace with function body.
+
+
+func _on_Player_hitting_object():
+	print("hey you hit me")
 	pass # Replace with function body.

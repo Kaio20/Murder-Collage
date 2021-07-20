@@ -11,7 +11,8 @@ export(float) var FOV = 80.0
 var mouse_axis := Vector2()
 onready var head: Spatial = get_node(head_path)
 onready var cam: Camera = get_node(cam_path)
-#onready var ray = get_node("Head/Camera/RayCast")
+onready var raycast = get_node("Head/Camera/RayCast")
+signal hitting_object()
 
 # Move
 var velocity := Vector3()
@@ -58,12 +59,24 @@ func _process(_delta: float) -> void:
 	if (Input.is_action_pressed("leftclick")):
 		var from = cam.project_ray_origin(mouse_position)
 		var to = from + cam.project_ray_normal(mouse_position) * raylength
-		print ("hello")
-		var ray = space_state.intersect_ray(from,to)
 		
-		if not ray.empty():
-			print(ray.get_collider())
+		
+		if raycast.is_colliding():
+			var collider = raycast.get_collider()
+		#	print(collider.get_class())
+			if collider.get_class() == "Area":
+				print("true")
+				emit_signal("hitting_object")
+				
 		pass
+		
+		
+	#	raycast.collide_with_areas
+#		var ray = space_state.intersect_ray(from,to,,1)
+#		var ray_collide = ray.get(CollisionObject)
+#		if not ray.empty():
+#				print(ray_collide)
+	
 
 
 # Called every physics tick. 'delta' is constant

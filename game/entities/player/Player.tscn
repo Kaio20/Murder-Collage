@@ -26,3 +26,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 keep_aspect = 0
 fov = 80.0
 far = 250.0
+
+[node name="RayCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -100 )
+collide_with_areas = true
