@@ -54,13 +54,13 @@ func _process(_delta: float) -> void:
 	move_axis.y = 1 
 	
 	var mouse_position = get_viewport().get_mouse_position()
-	var space_state = get_world().direct_space_state
-	
+#	var space_state = get_world().direct_space_state
+
 	if (Input.is_action_pressed("leftclick")):
 		var from = cam.project_ray_origin(mouse_position)
 		var to = from + cam.project_ray_normal(mouse_position) * raylength
-		
-		
+
+#
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
 		#	print(collider.get_class())
