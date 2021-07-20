@@ -6,16 +6,20 @@ extends KinematicBody
 export(float) var mouse_sensitivity = 12.0
 export(NodePath) var head_path
 export(NodePath) var cam_path
+
 export(float) var FOV = 80.0
 var mouse_axis := Vector2()
 onready var head: Spatial = get_node(head_path)
 onready var cam: Camera = get_node(cam_path)
+#onready var ray = get_node("Head/Camera/RayCast")
+
 # Move
 var velocity := Vector3()
 var direction := Vector3()
 var move_axis := Vector2()
 var sprint_enabled := true
 var sprinting := false
+
 # Walk
 const FLOOR_MAX_ANGLE: float = deg2rad(46.0)
 export(float) var gravity = 30.0
@@ -25,10 +29,14 @@ export(int) var acceleration = 8
 export(int) var deacceleration = 10
 export(float, 0.0, 1.0, 0.05) var air_control = 0.3
 export(int) var jump_height = 10
+
 # Fly
 export(int) var fly_speed = 10
 export(int) var fly_accel = 4
 var flying := false
+
+#ray
+export var raylength = 8000.0
 
 ##################################################
 
@@ -38,10 +46,24 @@ func _ready() -> void:
 	cam.fov = FOV
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame
 func _process(_delta: float) -> void:
 	move_axis.x = 1 
 	move_axis.y = 1 
+	
+	var mouse_position = get_viewport().get_mouse_position()
+	var space_state = get_world().direct_space_state
+	
+	if (Input.is_action_pressed("leftclick")):
+		var from = cam.project_ray_origin(mouse_position)
+		var to = from + cam.project_ray_normal(mouse_position) * raylength
+		print ("hello")
+		var ray = space_state.intersect_ray(from,to)
+		
+		if not ray.empty():
+			print(ray.get_collider())
+		pass
 
 
 # Called every physics tick. 'delta' is constant
@@ -55,6 +77,13 @@ func _input(event: InputEvent) -> void:
 		mouse_axis = event.relative
 		camera_rotation()
 
+# if event is InputEventMouseButton and event.pressed and event.button_index == 1:
+#		var from = cam.project_ray_origin(event.position)
+#		var to = from + cam.project_ray_normal(event.position) * raylength
+#		print ("hello")
+		
+#		ray(to,true,true,1,true)
+		
 func walk(delta: float) -> void:
 	# Input
 	direction = Vector3()
@@ -145,3 +174,14 @@ func camera_rotation() -> void:
 
 func can_sprint() -> bool:
 	return (sprint_enabled and is_on_floor())
+
+#func raycast() -> void:
+#	# Input
+#	direction = Vector3()
+#
+#	# Move Forward
+#	var _speed: int
+#	if (Input.is_action_pressed("leftclick")):
+#
+#		print("Hi")
+		
