@@ -15,18 +15,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	text_titel.text = Global.titel
-	pass
-
 
 
 
 #
-func _on_Player_set_UItexts(text, description, museum):
-	print("Hiu")
-	text_titel.text = text
+func _on_Player_set_UItexts(titel, description, museum):
+
+	text_titel.text = titel
 	text_description.text = description
-	text_musem = museum
+	text_musem.text = museum
 
 	pass # Replace with function body.
