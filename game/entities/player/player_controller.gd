@@ -62,16 +62,19 @@ func _input(event: InputEvent) -> void:
 func walk(delta: float) -> void:
 	# Input
 	direction = Vector3()
-	var aim: Basis = get_global_transform().basis
-	if move_axis.x >= 0.5:
-		direction -= aim.z
-	if move_axis.x <= -0.5:
-		direction += aim.z
-	if move_axis.y <= -0.5:
-		direction -= aim.x
-	if move_axis.y >= 0.5:
-		direction += aim.x
-	direction.y = 0
+	direction = get_global_transform().basis.z *-1
+#	direction = Vector3()
+##""""	var aim: Basis = get_global_transform().basis
+##	if move_axis.x >= 0.5:
+##		direction -= aim.z
+##	if move_axis.x <= -0.5:
+##		direction += aim.z
+##	if move_axis.y <= -0.5:
+##		direction -= aim.x
+##	if move_axis.y >= 0.5:
+##		direction += aim.x
+##	direction.y = 0 """
+	
 	direction = direction.normalized()
 	
 	# Jump
@@ -87,7 +90,7 @@ func walk(delta: float) -> void:
 	
 	# Sprint
 	var _speed: int
-	if (Input.is_action_pressed("move_sprint") and can_sprint() and move_axis.x >= 0.5):
+	if (Input.is_action_pressed("move_sprint") and can_sprint()  and move_axis.x >= 0.5):
 		_speed = sprint_speed
 		cam.set_fov(lerp(cam.fov, FOV * 1.05, delta * 8))
 		sprinting = true
