@@ -18,6 +18,10 @@ config/name="FirstPersonStarter"
 run/main_scene="res://scenes/s_main/S_Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://entities/player/global.gd"
+
 [importer_defaults]
 
 scene={

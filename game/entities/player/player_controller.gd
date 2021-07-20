@@ -15,6 +15,8 @@ onready var cam: Camera = get_node(cam_path)
 onready var raycast = get_node("Head/Camera/RayCast")
 signal hitting_object(collider)
 signal set_UItexts(text,description,museum)
+#var area = get_tree().get_root().find_parent("Area")
+
 
 # Move
 var velocity := Vector3()
@@ -217,3 +219,10 @@ func _on_Area_set_attribut(new_text,new_description,new_museum):
 	print("Heyyoushould")
 	emit_signal("set_UItexts",new_text,new_description,new_museum)
 	pass # Replace with function body.
+
+
+func _on_Area2_set_attribut(new_text, new_description, new_museum):
+		print(new_text)
+		print("Heyyoushould")
+		emit_signal("set_UItexts",new_text,new_description,new_museum)
+		pass # Replace with function body.

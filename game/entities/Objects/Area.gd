@@ -8,6 +8,7 @@ export var titel = "example title"
 export var description = "tweet tweet I do"
 export var museum = "I am from museum x.z"
 
+
  #(new_titel,new_description,new_museum)
 signal set_attribut(new_text,new_description,new_museum)
 
@@ -27,12 +28,13 @@ func _ready():
 
 
 
-
-
-
 func _on_Player_hitting_object(collider):
-	print(collider)
-	emit_signal("set_attribut", titel, description, museum)
+	if collider.name == self.name:
+		print(collider.name)
+		print(self.name)
+	#	emit_signal("set_attribut", titel, description, museum)
+		
+		global.titel = titel
 #	print(self)
 #	if collider == self:
 
