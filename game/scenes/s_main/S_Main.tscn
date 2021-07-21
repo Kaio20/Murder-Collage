@@ -1,13 +1,19 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
+[ext_resource path="res://hearthing.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://lantern.glb" type="PackedScene" id=4]
 [ext_resource path="res://scenes/assets/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/s_main/materials/dark.material" type="Material" id=6]
 [ext_resource path="res://scenes/s_main/materials/blue.material" type="Material" id=7]
+[ext_resource path="res://walkingstick.glb" type="PackedScene" id=8]
 [ext_resource path="res://entities/Objects/Area.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/UI/StartGame.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/apartment.glb" type="PackedScene" id=11]
+[ext_resource path="res://plate.glb" type="PackedScene" id=12]
+[ext_resource path="res://book.glb" type="PackedScene" id=13]
+[ext_resource path="res://razor.glb" type="PackedScene" id=14]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -276,6 +282,26 @@ transform = Transform( 1, 0, 0, 0, 0.993682, -0.112232, 0, 0.112232, 0.993682, -
 radius = 240.528
 sides = 16
 material = SubResource( 7 )
+
+[node name="plate" parent="." instance=ExtResource( 12 )]
+transform = Transform( -1.33738, -0.0204259, -8.92844e-10, 0, -5.84658e-08, 1.33754, -0.0204259, 1.33738, 5.84589e-08, -24.2784, -1.1225, -19.314 )
+
+[node name="razor" parent="." instance=ExtResource( 14 )]
+transform = Transform( -0.854205, 1.20131e-07, -0.519937, -8.74228e-08, -1, -8.74228e-08, -0.519937, -2.92226e-08, 0.854205, -34.7399, 7.03485, -17.2109 )
+
+[node name="book" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.0486138, -1.71466e-09, 0.0116918, 7.54979e-09, -0.01, -5.27208e-09, 0.0116918, -6.72101e-10, 0.0486138, -47.563, 6.01785, -18.1402 )
+
+[node name="hearthing" type="MeshInstance" parent="book"]
+transform = Transform( 1, 1.06581e-14, 0, -1.59872e-14, 1, 0, 0, -7.10543e-15, 1, 9.52794, -4.65041, -8.82246 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="lantern" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.5, 2.26494e-07, 9.90035e-15, 0, -6.55671e-08, 1.5, 2.26494e-07, 1.5, 6.55671e-08, -23.2056, -3.16785, -11.0138 )
+
+[node name="walkingstick" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.692609, 0, 0.721313, 0, 1, 0, -0.721313, 0, 0.692609, -64.1852, 3.50252, -15.4102 )
 
 [connection signal="set_attribut" from="Area" to="Player" method="_on_Area_set_attribut"]
 [connection signal="set_attribut" from="Area2" to="Player" method="_on_Area2_set_attribut"]
