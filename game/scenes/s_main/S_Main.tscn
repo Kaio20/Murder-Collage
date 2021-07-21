@@ -44,13 +44,25 @@ size = Vector3( 1, 1, 1 )
 points = PoolVector3Array( -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5 )
 
 [sub_resource type="ProceduralSky" id=5]
+sky_curve = 0.292411
 ground_bottom_color = Color( 0.352941, 0.317647, 0.239216, 1 )
 ground_horizon_color = Color( 0.839216, 0.917647, 0.980392, 1 )
 ground_curve = 0.101965
+sun_color = Color( 1, 0.972549, 0.490196, 1 )
+sun_latitude = 30.0
+sun_longitude = 50.24
+sun_angle_min = 3.83
+sun_curve = 0.00652576
 
 [sub_resource type="Environment" id=6]
 background_mode = 2
 background_sky = SubResource( 5 )
+background_color = Color( 0, 0.25098, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_sky_contribution = 0.49
+ssao_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.1
 
 [sub_resource type="SpatialMaterial" id=7]
 emission_enabled = true
@@ -64,7 +76,7 @@ params_diffuse_mode = 1
 params_specular_mode = 4
 albedo_color = Color( 0.211765, 0.462745, 0.309804, 1 )
 metallic_specular = 0.0
-roughness = 0.0
+roughness = 0.88
 
 [sub_resource type="QuadMesh" id=9]
 size = Vector2( 10, 10 )
@@ -131,84 +143,121 @@ script = ExtResource( 2 )
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -5.10979, 3.19675, -10.9945 )
 
 [node name="Area2" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.169362, 0.241809, -0.125384 )
 
 [node name="Area3" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.5248, 0.0471827, -1.47874 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.42953, 0.234668, -1.60412 )
 titel = "book cover"
 description = "this wonderful book cover from the Codex Aureus Epternacensis with its gold shouldnt be on the floor or even in this apartment. Who dropped it?"
 museum = "germanisches nationalmuseum"
 
 [node name="Area4" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 0.800109, 0, 0, 0, 2, 0, 0, 0, 0.902734, -7.57126, 0.636245, 0.248684 )
+transform = Transform( 0.800109, 0, 0, 0, 2, 0, 0, 0, 0.902734, -7.46019, 0.878054, 0.123299 )
 titel = "pit lamp"
 description = "The pit lamp made of galvanised steel was manufactured around the 1950s. So people can have lights in the mines to work with. Was he using it?"
 museum = "Deutsches Bergbau-Museum Bochum"
 
 [node name="Area5" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 0.800109, 0, 0, 0, 0.871557, 0, 0, 0, 0.54101, -7.66868, 0.93526, -1.44933 )
+transform = Transform( 0.800109, 0, 0, 0, 0.871557, 0, 0, 0, 0.54101, -7.56169, 1.09774, -1.57471 )
 titel = "silver plate"
 description = "this old plate from italy showing the the sun, the moon, eternity, seasons, ethe elements, light and darkess from italy is reminding me of something"
 museum = " RGZM Ancient Seafaring"
 
 [node name="Area6" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 0.800109, 0, 0, 0, 0.871557, 0, 0, 0, 0.54101, -8.73365, 0.564135, -1.45028 )
+transform = Transform( 0.800109, 0, 0, 0, 0.871557, 0, 0, 0, 0.54101, -8.70118, 0.805944, -1.45404 )
 titel = "Philips Lady Shave"
 description = "Sold by telling woman they have to shave their bodies this razor from the 50s is by philips. Could the murderer have used it? "
 museum = "Deutsches Museum"
 
 [node name="Area12" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 0.800109, 0, 0, 0, 0.871557, 0, 0, 0, 0.54101, -8.73365, 0.564135, -2.54649 )
+transform = Transform( 0.800109, 0, 0, 0, 0.871557, 0, 0, 0, 0.54101, -8.56429, 0.805944, -2.67187 )
 titel = "pacemaker"
 description = "this first pacemaker was the first that could get implanted. Maybe they kept it as memorie from a friend or a reminder?"
 museum = "Deutsches Museum"
 
 [node name="Area7" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.63965, 0, 0, 0, 1.2442, 0, 0, 0, 0.54101, -8.23413, 0.829144, 0.364704 )
+transform = Transform( 1.63965, 0, 0, 0, 1.2442, 0, 0, 0, 0.54101, -8.20867, 1.07095, 0.382794 )
 titel = "Headframe from Germania mine"
 description = "Headframes were used to to enable the hoisting of machinery, personnel, or materials to the underground. This headframe is now the emblem of the Bergbau-Museum Bochum."
 museum = "Bergbau-Museum Bochum"
 
-[node name="Area8" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.63965, 0, 0, 0, 1.2442, 0, 0, 0, 0.54101, -8.23413, 0.829144, 0.453623 )
-titel = "Headframe from the Germania mine"
-description = "Headframes were used to to enable the hoisting of machinery, personnel, or materials to the underground. This headframe is now the emblem of the Bergbau-Museum Bochum."
-museum = "Bergbau-Museum Bochum"
-
 [node name="Area9" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.45413, 0, 0.664688, 0, 1.2442, 0, -0.789165, 0, 0.940132, -9.51495, 0.40792, -2.06126 )
+transform = Transform( 1.45413, 0, 0.664688, 0, 1.2442, 0, -0.789165, 0, 0.940132, -9.38242, 0.649729, -2.13847 )
 titel = "Telefunken Zerzola II"
 description = "This wooden furniture from the 50s has a TV, a radio and even a vinyl record player build in. Could the victim have been watching something with the volume all turned up?"
 museum = "Deutsches Museum"
 
 [node name="Area10" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.45413, 0, 0.664688, 0, 1.2442, 0, -0.789165, 0, 0.940132, -9.28484, 0.0462115, -1.44379 )
+transform = Transform( 1.45937, 0, -0.418876, 0, 1.2442, 0, 0.77943, 0, 1.07247, -9.11548, 0.28802, -1.65445 )
 titel = "Wanderstock"
 description = "this walking stick is used to lift weight from the shoulder and thats how it helps older people wander through the mountains. Shouldn't it be on the door or why is it here"
 museum = "Deutsches Museum"
 
 [node name="Area11" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.4608, 0, 0.667736, 0, 1.2442, 0, -0.998254, 0, 1.18922, -8.58452, 0.0462114, -1.88146 )
+transform = Transform( 1.4608, 0, 0.667736, 0, 1.2442, 0, -0.998254, 0, 1.18922, -8.41516, 0.304941, -2.00684 )
 titel = "the victim"
 description = "the neighbors heard sounds and then one very loud sound together with a cry. After that they reported that they heard someone running away."
 museum = "our mind"
 
 [node name="Area" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.37962, 0, -1.44798, 0, 3.5033, 0, 1.44798, 0, 1.37962, -6.46636, 0.718112, 1.71203 )
+transform = Transform( 1.37962, 0, -1.44798, 0, 3.5033, 0, 1.44798, 0, 1.37962, -6.32486, 0.956804, 1.70161 )
 titel = "suspect: Charles"
 description = "This town will occasionally get a visit from Charles, a filthy rich bachelor who spends all his time travelling and trading antique goods. Where he sources his valuable items - nobody knows. Could this be the suspect you are looking for discuss it with someone."
 museum = "our mind"
 
 [node name="Area13" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.37962, 0, -1.44798, 0, 3.5033, 0, 1.44798, 0, 1.37962, -7.827, 0.718112, 2.48689 )
+transform = Transform( 1.37962, 0, -1.44798, 0, 3.5033, 0, 1.44798, 0, 1.37962, -7.65764, 0.959921, 2.36151 )
 titel = "suspect: Gertrude"
 description = "The local pastor, Gertrude is passionate about religion and morale. She believes that all religious relics belong in places of worship, not in museums and definitely not in private homes. Could this be the suspect you are looking for discuss it with someone."
 museum = "our mind"
 
 [node name="Area14" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 0.449293, 0, -1.86138, 0, 3.5033, 0, 1.80001, 0, 0.169196, -8.14448, 0.718112, 0.967296 )
+transform = Transform( 0.449293, 0, -1.86138, 0, 3.5033, 0, 1.80001, 0, 0.169196, -7.97512, 0.959921, 0.841912 )
 titel = "suspect: Hans"
 description = "Hans is as old as time, you wouldn't believe it but he's still going strong working in the local mine. His mission in life is to expand his collectionof rare literature, he likes to brag about his first editions in the break room. Could this be the suspect you are looking for discuss it with someone."
 museum = "our mind"
+
+[node name="Area15" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.9268, 0.796284, -7.24019 )
+titel = "sign "
+description = "a sign for parking your car if you plan on wandering here. Seems to be a nice spot to get into your wanderboots."
+museum = "Germanisches Nationalmuseum"
+
+[node name="Area16" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -8.81109, 0.575038, -7.04287 )
+titel = "grey wolves"
+description = "Grey wolves were extinct in Germany, but have been able to migrate back from Eastern Europe to claim former territories in the last decades. We should not be afraid of wolves but of cars because they actually kill"
+museum = "Germanisches Nationalmuseum"
+
+[node name="Area17" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( -0.735215, 0, 0, 0, 2, 0, 0, 0, 0.550977, -7.60212, 0.372065, -4.74745 )
+titel = "ladder"
+description = "did the murderer come through this in here"
+museum = "your local hardware store"
+
+[node name="Area18" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( -0.735215, 0, 0, 0, 2, 0, 0, 0, 1.40218, -6.4532, 1.00334, -3.2494 )
+titel = "Trajan Colum"
+description = "A photograph from a museum, it shows a Roman reliefs with depictions of ships. Build upon colums and your case is not on a shaky fundament."
+museum = "Römisch-Germanisches Zentralmuseum Mainz"
+
+[node name="Area19" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( -0.217376, 0, 0, 0, 1.23392, 0, 0, 0, 1.02861, -7.72194, 1.00334, -1.23676 )
+titel = "Sagittarius serpentarius"
+description = "The secretarybird is a huge predator, they can reach up to 130 cm. Did the victim ever consider that he might be prey for this bird?"
+museum = "Zoologisches Forschungsmuseum König"
+
+[node name="Area20" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( -0.217376, 0, 0, 0, 1.23392, 0, 0, 0, 1.02861, -7.76518, 1.00334, -0.739981 )
+titel = "a piece of the Katharinenaltar"
+description = "this piece from the Werkstatt des Meisters des Deocarusaltars shows the clear obsession from the victim about christian objects"
+museum = "Germanisches Nationalmuseum Nürnberg"
+
+[node name="Area21" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( -0.55444, 0, 0, 0, 0.772874, 0, 0, 0, 0.62974, -9.37766, 0.86455, 0.300797 )
+titel = "bottleship \"DEUTSCHLAND"
+description = "the orignal ship was used to transport immigrants to america and was the manufractures HAPAG frist ship. Does it hold memories from the family of the victim for the victim?"
+museum = "German Maritim Museum"
 
 [node name="ArenaGeometry" type="Spatial" parent="."]
 
@@ -237,7 +286,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall8" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( 0.219975, 0, 0, 0, -1.74846e-06, -6, 0, 13.4455, -8.81583e-08, -44.1795, 6.96595, -11.1602 )
+transform = Transform( 0.219975, 0, 0, 0, -1.74846e-06, -6, 0, 13.4455, -8.81583e-08, -43.6796, 6.96595, -11.1602 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -249,7 +298,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall9" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -48.468, 7.64954, -8.40255 )
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -48.468, 7.64954, -8.49971 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -261,7 +310,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall10" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -32.7829, 7.64954, -8.40255 )
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -32.4385, 7.64954, -8.53102 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -273,7 +322,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall11" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -51.1792, 7.64954, -30.856 )
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -51.1792, 7.64954, -31.2143 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -285,7 +334,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall13" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -3.5283e-09, 4.93373, -9.62376e-08, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -42.4571, 2.9918, -33.72 )
+transform = Transform( -3.5283e-09, 4.93373, -9.62376e-08, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -42.4571, 3.96448, -33.72 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -297,7 +346,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall14" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -0.219873, 0.149808, -2.92216e-09, 0, -5.87721e-07, -6, -0.00667932, -4.93146, 9.61932e-08, -44.7936, 2.9918, -33.72 )
+transform = Transform( -0.219873, 0.149808, -2.92216e-09, 0, -5.87721e-07, -6, -0.00667932, -4.93146, 9.61932e-08, -44.3199, 3.85692, -33.72 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -309,7 +358,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall15" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -0.219873, 0.149808, -2.92216e-09, 0, -5.87721e-07, -6, -0.00667932, -4.93146, 9.61932e-08, -40.2816, 2.9918, -33.72 )
+transform = Transform( -0.219873, 0.149808, -2.92216e-09, 0, -5.87721e-07, -6, -0.00667932, -4.93146, 9.61932e-08, -39.9701, 4.03717, -33.72 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -321,7 +370,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 4 )
 
 [node name="Wall12" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -33.391, 7.3067, -30.8136 )
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -33.1022, 7.3067, -31.2082 )
 visible = false
 use_in_baked_light = true
 mesh = SubResource( 3 )
@@ -434,8 +483,10 @@ shape = SubResource( 4 )
 environment = SubResource( 6 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Lighting"]
-transform = Transform( 0.965926, 0.198266, 0.166365, -2.09447e-07, -0.642788, 0.766044, 0.258818, -0.739942, -0.620885, 2.17494, 9.39172, -2.14115 )
-light_energy = 2.0
+transform = Transform( 0.971158, -0.14868, -0.186403, -0.0974547, -0.961006, 0.258787, -0.217611, -0.233157, -0.947778, 3.14502, 9.08788, -4.37856 )
+light_color = Color( 0.988235, 0.960784, 0.835294, 1 )
+light_energy = 0.3
+light_indirect_energy = 4.45
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
@@ -488,7 +539,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50357, 1.32946, 0.824054 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="apartment/Spatial"]
 transform = Transform( 0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0.227253, 0, 0.287753 )
 stream = ExtResource( 18 )
-unit_size = 0.8
+unit_size = 3.0
+max_db = -19.363
 autoplay = true
 
 [node name="trees" type="Spatial" parent="."]
@@ -574,10 +626,11 @@ transform = Transform( 1.1725, 0, 0.301679, 0, 1.21069, 0, -0.301679, 0, 1.1725,
 transform = Transform( -0.632374, -0.205709, -0.746852, -0.28423, 0.958472, -0.023333, 0.720636, 0.197523, -0.664581, 39.0191, 3.563, -4.86508 )
 
 [node name="colision" type="Spatial" parent="."]
+transform = Transform( 0.983, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.089, 0 )
 visible = false
 
 [node name="CSGBox" type="CSGBox" parent="colision"]
-transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -46.422, 5.25737, -25.4899 )
+transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -46.6582, 5.25737, -26.1211 )
 use_collision = true
 height = 1.27594
 depth = 6.60655
@@ -589,7 +642,7 @@ height = 1.27594
 depth = 6.60655
 
 [node name="CSGBox3" type="CSGBox" parent="colision"]
-transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -53.37, 4.75864, -23.508 )
+transform = Transform( 0.848564, 0.0231403, 0.52884, -0.00579328, 0.99939, -0.0344344, -0.526637, 0.0262182, 0.849535, -53.6694, 5.36607, -23.6485 )
 use_collision = true
 height = 1.27594
 depth = 6.60655
@@ -602,34 +655,35 @@ height = 3.41351
 depth = 6.60655
 
 [node name="CSGBox5" type="CSGBox" parent="colision"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4566, 7.03374, -18.2344 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.6372, 7.03374, -18.6404 )
 use_collision = true
 width = 1.49326
 height = 5.0456
 depth = 0.362256
 
 [node name="CSGBox6" type="CSGBox" parent="colision"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4451, 4.99211, -18.1868 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4451, 4.99211, -18.4857 )
 use_collision = true
 width = 6.24743
 height = 2.09104
-depth = 0.952532
+depth = 0.88458
 
 [node name="CSGBox8" type="CSGBox" parent="colision"]
-transform = Transform( 0.246372, 0, 0, 0, 1, 0, 0, 0, 1, -42.8427, 4.99211, -9.34538 )
+transform = Transform( 0.246372, 0, 0, 0, 1, 0, 0, 0, 1, -43.2195, 4.99211, -10.1166 )
 use_collision = true
 width = 6.24743
 height = 2.09104
 depth = 0.952532
 
 [node name="CSGBox7" type="CSGBox" parent="colision"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4451, 4.99211, -8.93519 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4451, 4.99211, -9.31839 )
 use_collision = true
 width = 6.24743
 height = 2.09104
 depth = 0.952532
 
 [node name="suspects" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.208, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="suspects"]
 transform = Transform( 0.827131, 0, 0.910474, 0, 2, 0, -1.82095, 0, 0.413565, -44.866, 6.70691, -6.04778 )
@@ -652,7 +706,7 @@ mesh = SubResource( 18 )
 material/0 = SubResource( 19 )
 
 [node name="ShipInaBottle" type="MeshInstance" parent="."]
-transform = Transform( 0.6673, 0, 0.744789, 0, 1, 0, -0.744789, 0, 0.6673, -51.7838, 7.35559, -18.589 )
+transform = Transform( 0.6673, 0, 0.744789, 0, 1, 0, -0.744789, 0, 0.6673, -52.0354, 7.35559, -9.48263 )
 mesh = SubResource( 20 )
 material/0 = SubResource( 21 )
 
@@ -663,9 +717,9 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -61.5867, 6.27832, -54.4567 )
 transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -55.778, 6.791, -34.891 )
 
 [node name="painting1" parent="." instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -55.736, 7.126, -38.18 )
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -55.736, 7.126, -37.941 )
 
 [node name="sign" parent="." instance=ExtResource( 30 )]
-transform = Transform( 0.993707, 1.60642e-07, -0.112006, 1.50996e-07, -1, -9.46076e-08, -0.112006, 7.70998e-08, -0.993707, -40.7571, 7.35674, -47.2184 )
+transform = Transform( 0.993707, 1.60642e-07, -0.112006, 1.50996e-07, -1, -9.46076e-08, -0.112006, 7.70998e-08, -0.993707, -39.6911, 7.35674, -47.2184 )
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
