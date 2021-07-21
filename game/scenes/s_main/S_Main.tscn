@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://objects/hearthing.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -21,6 +21,15 @@
 [ext_resource path="res://objects/Suspects/Charles.PNG" type="Texture" id=19]
 [ext_resource path="res://objects/Suspects/Hans.jpg" type="Texture" id=20]
 [ext_resource path="res://objects/Suspects/suspect_spatialmaterial.tres" type="Material" id=21]
+[ext_resource path="res://objects/billboards/shipinabottle.png" type="Texture" id=22]
+[ext_resource path="res://tree-png-6386.png" type="Texture" id=23]
+[ext_resource path="res://objects/billboards/wolves.png" type="Texture" id=24]
+[ext_resource path="res://tree-png-6389.png" type="Texture" id=25]
+[ext_resource path="res://tree-png-6393.png" type="Texture" id=26]
+[ext_resource path="res://painting3.glb" type="PackedScene" id=27]
+[ext_resource path="res://painting2.glb" type="PackedScene" id=28]
+[ext_resource path="res://painting1.glb" type="PackedScene" id=29]
+[ext_resource path="res://sign.glb" type="PackedScene" id=30]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -58,16 +67,62 @@ metallic_specular = 0.0
 roughness = 0.0
 
 [sub_resource type="QuadMesh" id=9]
+size = Vector2( 10, 10 )
 
 [sub_resource type="SpatialMaterial" id=10]
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.1
+albedo_texture = ExtResource( 23 )
+
+[sub_resource type="QuadMesh" id=11]
+size = Vector2( 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=12]
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.33
+albedo_texture = ExtResource( 25 )
+
+[sub_resource type="QuadMesh" id=13]
+size = Vector2( 4, 6 )
+
+[sub_resource type="SpatialMaterial" id=14]
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.43
+albedo_texture = ExtResource( 26 )
+
+[sub_resource type="QuadMesh" id=15]
+size = Vector2( 1, 1.3 )
+
+[sub_resource type="SpatialMaterial" id=16]
 params_billboard_mode = 2
 params_billboard_keep_scale = true
 albedo_texture = ExtResource( 20 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=17]
 params_billboard_mode = 2
 params_billboard_keep_scale = true
 albedo_texture = ExtResource( 19 )
+
+[sub_resource type="QuadMesh" id=18]
+size = Vector2( 5.7, 4 )
+
+[sub_resource type="SpatialMaterial" id=19]
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.1
+albedo_texture = ExtResource( 24 )
+
+[sub_resource type="QuadMesh" id=20]
+size = Vector2( 1, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=21]
+params_billboard_mode = 1
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = ExtResource( 22 )
 
 [node name="S_Main" type="Spatial"]
 script = ExtResource( 2 )
@@ -412,7 +467,7 @@ flat = true
 [node name="Start Menu for HTML" parent="." instance=ExtResource( 10 )]
 
 [node name="apartment" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -47.6863, 4.42029, -22.7426 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -47.2495, 5.49181, -23.1665 )
 
 [node name="CSGBox" type="CSGBox" parent="apartment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18053, 3.4196, 1.20371 )
@@ -436,34 +491,87 @@ stream = ExtResource( 18 )
 unit_size = 0.8
 autoplay = true
 
+[node name="trees" type="Spatial" parent="."]
+transform = Transform( -1.33738, -0.020426, -8.92831e-10, 0, -5.84658e-08, 1.33754, -0.020426, 1.33738, 5.8459e-08, -30.8067, 10.6049, -57.6919 )
+
+[node name="tree2" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 0, -5.55112e-17, 0, 1, 0, 1.11022e-16, -7.10543e-15, 1, 0, 0, 0 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="tree" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 0, -5.55112e-17, 0, 1, 0, 1.11022e-16, -7.10543e-15, 1, 12.421, 5.39491, -0.501361 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="tree3" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 1.86265e-09, 5.55112e-17, -1.86265e-09, 1, -3.55271e-14, 1.66533e-16, -2.84217e-14, 1, -0.318186, 17.9311, -2.01107 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 1.86265e-09, -1.66533e-16, -1.86265e-09, 1, -1.06581e-14, 3.88578e-16, -4.26326e-14, 1, 6.61797, 0, 0.102948 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 0, -6.66134e-16, 0, 1, -3.55271e-15, 7.77156e-16, -7.81597e-14, 1, 21.3354, 10.4939, -1.29269 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 0, -8.88178e-16, 0, 1, -3.55271e-15, 9.99201e-16, -9.9476e-14, 1, -3.57215, 10.4939, -1.29269 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 1.86265e-09, -7.77156e-16, -1.86265e-09, 1, -6.03961e-14, 1.05471e-15, -1.3145e-13, 1, 19.6601, 17.2189, -2.3187 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 9.31323e-10, -1.77636e-15, -9.31323e-10, 1, -7.10543e-15, 1.9984e-15, -1.98952e-13, 1, 4.95011, 7.17033, -2.22473 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 0, -2.38698e-15, 0, 1, -3.55271e-15, 2.498e-15, -2.4869e-13, 1, -3.2885, 2.68214, -1.87165 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="trees"]
+transform = Transform( 1, 9.31323e-10, -2.27596e-15, -9.31323e-10, 1, -7.10543e-15, 2.44249e-15, -2.41585e-13, 1, 17.0984, 6.70203, -2.15 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
 [node name="Objects" type="Spatial" parent="."]
 transform = Transform( 0.692609, 0, 0.721313, 0, 1, 0, -0.721313, 0, 0.692609, -64.1852, 3.50252, -15.4102 )
 
 [node name="plate" parent="Objects" instance=ExtResource( 12 )]
-transform = Transform( -0.911548, -0.978817, -4.27856e-08, 0, -5.84658e-08, 1.33754, -0.978817, 0.911548, 3.98452e-08, 30.4557, -4.62502, 26.0815 )
+transform = Transform( -0.911548, -0.978817, -4.27856e-08, 0, -5.84658e-08, 1.33754, -0.978817, 0.911548, 3.98452e-08, 31.1045, -4.16115, 26.1728 )
 
 [node name="razor" parent="Objects" instance=ExtResource( 14 )]
-transform = Transform( -0.216593, 1.04282e-07, -0.976263, -8.74228e-08, -1, -8.74228e-08, -0.976263, 6.64122e-08, 0.216593, 21.693, 3.53233, 19.9921 )
+transform = Transform( -0.216593, 1.04282e-07, -0.976263, -8.74228e-08, -1, -8.74228e-08, -0.976263, 6.64122e-08, 0.216593, 22.1976, 4.62409, 19.8802 )
 
 [node name="hearthing" type="MeshInstance" parent="Objects"]
-transform = Transform( -0.0820041, -1.14831e-09, -0.0629804, 7.54983e-09, -0.01, -5.27212e-09, -0.0477662, -3.35942e-09, 0.0908996, 16.6853, 1.98349, 5.60299 )
+transform = Transform( -0.0820041, -1.14831e-09, -0.0629804, 7.54983e-09, -0.01, -5.27212e-09, -0.0477662, -3.35942e-09, 0.0908996, 16.6853, 3.0621, 5.603 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="book" parent="Objects" instance=ExtResource( 13 )]
-transform = Transform( -4.21038, -3.51395e-07, -0.539358, 7.54979e-07, -5, -1.05442e-07, -2.69679, -8.51154e-07, 0.842076, 13.4819, 3.59935, 10.099 )
+transform = Transform( -4.21038, -3.51395e-07, -0.539358, 7.54979e-07, -5, -1.05442e-07, -2.69679, -8.51154e-07, 0.842076, 12.8407, 3.89495, 9.68837 )
 
 [node name="lantern" parent="Objects" instance=ExtResource( 4 )]
-transform = Transform( -1.03891, -1.08197, -4.72944e-08, 0, -6.55671e-08, 1.5, -1.08197, 1.03891, 4.54124e-08, 25.2117, -6.67037, 32.6041 )
+transform = Transform( -1.03891, -1.08197, -4.72944e-08, 0, -6.55671e-08, 1.5, -1.08197, 1.03891, 4.54124e-08, 25.9027, -5.61846, 32.5734 )
 
 [node name="book2" parent="Objects" instance=ExtResource( 16 )]
-transform = Transform( 0.3, 0, 0, 0, 0.04, 0, 1.49012e-08, 0, 0.35, 19.7987, 0.937154, 16.0326 )
+transform = Transform( 0.3, 0, 0, 0, 0.04, 0, 1.49012e-08, 0, 0.35, 19.7355, 2.02882, 16.0326 )
 
 [node name="walkingstick" parent="Objects" instance=ExtResource( 8 )]
-transform = Transform( 0.968457, 0, 0.24918, 0, 1, 0, -0.24918, 0, 0.968457, -0.834419, 0, 4.33154 )
+transform = Transform( 1.1725, 0, 0.301679, 0, 1.21069, 0, -0.301679, 0, 1.1725, -3.18177, 0.912956, 2.91969 )
 
 [node name="ladder" parent="Objects" instance=ExtResource( 15 )]
-transform = Transform( -0.632374, -0.205709, -0.746852, -0.28423, 0.958472, -0.023333, 0.720636, 0.197523, -0.664581, 38.6474, 3.39592, -4.44146 )
+transform = Transform( -0.632374, -0.205709, -0.746852, -0.28423, 0.958472, -0.023333, 0.720636, 0.197523, -0.664581, 39.0191, 3.563, -4.86508 )
 
 [node name="colision" type="Spatial" parent="."]
 visible = false
@@ -524,18 +632,40 @@ depth = 0.952532
 [node name="suspects" type="Spatial" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="suspects"]
-transform = Transform( 0.827131, 0, 0.910474, 0, 2, 0, -1.82095, 0, 0.413565, -44.866, 6.49097, -6.04778 )
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+transform = Transform( 0.827131, 0, 0.910474, 0, 2, 0, -1.82095, 0, 0.413565, -44.866, 6.70691, -6.04778 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="suspects"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -43.5121, 6.49097, -0.511117 )
-mesh = SubResource( 9 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -43.5121, 6.71505, -0.511117 )
+mesh = SubResource( 15 )
 material/0 = ExtResource( 21 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="suspects"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -38.4117, 6.49097, -2.8421 )
-mesh = SubResource( 9 )
-material/0 = SubResource( 11 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -38.4117, 6.72325, -2.8421 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 17 )
+
+[node name="Wolves" type="MeshInstance" parent="."]
+transform = Transform( 0.6673, 0, 0.744789, 0, 1, 0, -0.744789, 0, 0.6673, -47.8065, 6.32814, -45.3352 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="ShipInaBottle" type="MeshInstance" parent="."]
+transform = Transform( 0.6673, 0, 0.744789, 0, 1, 0, -0.744789, 0, 0.6673, -51.7838, 7.35559, -18.589 )
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
+
+[node name="painting2" parent="." instance=ExtResource( 28 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -61.5867, 6.27832, -54.4567 )
+
+[node name="painting3" parent="." instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -55.778, 6.791, -34.891 )
+
+[node name="painting1" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -55.736, 7.126, -38.18 )
+
+[node name="sign" parent="." instance=ExtResource( 30 )]
+transform = Transform( 0.993707, 1.60642e-07, -0.112006, 1.50996e-07, -1, -9.46076e-08, -0.112006, 7.70998e-08, -0.993707, -40.7571, 7.35674, -47.2184 )
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
