@@ -120,7 +120,7 @@ description = "Headframes were used to to enable the hoisting of machinery, pers
 museum = "Bergbau-Museum Bochum"
 
 [node name="Area9" parent="Explaniation" instance=ExtResource( 9 )]
-transform = Transform( 1.45413, 0, 0.664688, 0, 1.2442, 0, -0.789165, 0, 0.940132, -9.51495, 0.40792, -2.06518 )
+transform = Transform( 1.45413, 0, 0.664688, 0, 1.2442, 0, -0.789165, 0, 0.940132, -9.51495, 0.40792, -2.06126 )
 titel = "Telefunken Zerzola II"
 description = "This wooden furniture from the 50s has a TV, a radio and even a vinyl record player build in. Could the victim have been watching something with the volume all turned up?"
 museum = "Deutsches Museum"
