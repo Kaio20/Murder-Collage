@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/player/player_controller.gd" type="Script" id=1]
 [ext_resource path="res://entities/UI/UI_museum.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://entities/UI/default_dynamicfont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.6
@@ -53,5 +54,19 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.294118 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
+
+[node name="controls" type="Label" parent="Control"]
+margin_left = -473.11
+margin_top = 257.661
+margin_right = -108.11
+margin_bottom = 329.661
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.941176, 0.964706, 0.988235, 0.352941 )
+text = "click left mouse button to interact
+hold right mouse button to move forward
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="set_UItexts" from="." to="UI_museum_scene" method="_on_Player_set_UItexts"]

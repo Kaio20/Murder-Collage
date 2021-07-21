@@ -18,4 +18,5 @@ func _ready():
 
 func _on_Button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	self.visible = false
 	pass # Replace with function body.
