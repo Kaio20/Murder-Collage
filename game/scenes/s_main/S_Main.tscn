@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/s_main/Slope1.gd" type="Script" id=8]
 [ext_resource path="res://entities/Objects/Area.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/UI/StartGame.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/apartment.glb" type="PackedScene" id=11]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -168,6 +169,9 @@ depth = 0.313357
 [node name="Area3" parent="." instance=ExtResource( 9 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.65369, 2.35962, -10.4982 )
 titel = "FUCK OFF"
+
+[node name="apartment" parent="." instance=ExtResource( 11 )]
+transform = Transform( 2.47522, 0, 0, 0, 2.47522, 0, 0, 0, 2.47522, -47.6863, 4.42029, -22.7426 )
 
 [connection signal="set_attribut" from="Area" to="Player" method="_on_Area_set_attribut"]
 [connection signal="set_attribut" from="Area2" to="Player" method="_on_Area2_set_attribut"]
