@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://hearthing.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://plate.glb" type="PackedScene" id=12]
 [ext_resource path="res://book.glb" type="PackedScene" id=13]
 [ext_resource path="res://razor.glb" type="PackedScene" id=14]
+[ext_resource path="res://scenes/outline.glb" type="PackedScene" id=15]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -274,6 +275,9 @@ use_collision = true
 width = 0.433964
 height = 4.83129
 depth = 26.3585
+
+[node name="outline" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -47.812, 4.42368, -22.8116 )
 
 [node name="apartment" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -47.6863, 4.42029, -22.7426 )

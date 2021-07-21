@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/outline.obj-6b90331f1eebf52ecc0097f0fc646984.mesh"
+
+[deps]
+
+files=[ "res://.import/outline.obj-6b90331f1eebf52ecc0097f0fc646984.mesh" ]
+
+source_file="res://scenes/outline.obj"
+dest_files=[ "res://.import/outline.obj-6b90331f1eebf52ecc0097f0fc646984.mesh", "res://.import/outline.obj-6b90331f1eebf52ecc0097f0fc646984.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
