@@ -99,7 +99,7 @@ func _process(_delta: float) -> void:
 		#	get_node("GUI").get_node("Thanks").visible = true
 	else :
 		UMG.visible = false
-		print("be gone")
+
 		
 	pass
 		
