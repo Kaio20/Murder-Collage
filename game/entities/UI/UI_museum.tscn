@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://entities/UI/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://entities/UI/UI_museum.gd" type="Script" id=2]
+[ext_resource path="res://entities/UI/TexturesCom_BookOpen0126_5_masked_S.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 0 )
+
+[node name="UI_museum_scene" type="Control" groups=[
+"UI",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TexturesCom_BookOpen0126_5_masked_S" type="Sprite" parent="."]
+position = Vector2( 985.978, 307.312 )
+scale = Vector2( 0.70336, 0.641374 )
+texture = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource( 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -340.0
+margin_top = 100.0
+margin_right = -27.0
+margin_bottom = 500.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_titel" type="Label" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+margin_left = -1.09495
+margin_top = -41.38
+margin_right = -4.79495
+margin_bottom = -389.38
+theme = ExtResource( 1 )
+text = "Lorem ipsum titel"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_description" type="Label" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.175
+anchor_right = 0.95
+anchor_bottom = 0.8
+margin_left = -0.650001
+margin_top = -38.0
+margin_right = 7.64999
+margin_bottom = 70.0
+theme = ExtResource( 1 )
+text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_museum" type="Label" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 1.0
+margin_left = 55.35
+margin_top = 29.0
+margin_right = 0.649994
+margin_bottom = 42.0
+theme = ExtResource( 1 )
+text = "your favorite museum"
+align = 2
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_from" type="Label" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.9
+anchor_right = 0.95
+anchor_bottom = 1.0
+margin_left = 2.07986
+margin_top = 28.9401
+margin_right = -119.62
+margin_bottom = 10.9401
+theme = ExtResource( 1 )
+text = "from:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

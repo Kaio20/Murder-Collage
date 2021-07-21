@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://entities/player/player_controller.gd" type="Script" id=1]
-[ext_resource path="res://entities/player/UI_museum.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/UI/UI_museum.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.6
@@ -34,5 +35,23 @@ cast_to = Vector3( 0, 0, -100 )
 collide_with_areas = true
 
 [node name="UI_museum_scene" parent="." instance=ExtResource( 2 )]
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="Sprite" parent="Control"]
+modulate = Color( 1, 1, 1, 0.294118 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
 
 [connection signal="set_UItexts" from="." to="UI_museum_scene" method="_on_Player_set_UItexts"]
