@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/plate.glb-d5c97c51e66e894ef47a2bacd760aabd.scn"
+path="res://.import/walkingstick.glb-f4088bed192883f35b1d423cf8f7d799.scn"
 
 [deps]
 
-source_file="res://plate.glb"
-dest_files=[ "res://.import/plate.glb-d5c97c51e66e894ef47a2bacd760aabd.scn" ]
+source_file="res://objects/walkingstick.glb"
+dest_files=[ "res://.import/walkingstick.glb-f4088bed192883f35b1d423cf8f7d799.scn" ]
 
 [params]
 

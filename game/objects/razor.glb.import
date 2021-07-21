@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/razor.glb-869ccc6b99decdbaa4b79a1c70f40175.scn"
+path="res://.import/razor.glb-9740f7d8fa0936f27b335368dd434ebf.scn"
 
 [deps]
 
-source_file="res://razor.glb"
-dest_files=[ "res://.import/razor.glb-869ccc6b99decdbaa4b79a1c70f40175.scn" ]
+source_file="res://objects/razor.glb"
+dest_files=[ "res://.import/razor.glb-9740f7d8fa0936f27b335368dd434ebf.scn" ]
 
 [params]
 

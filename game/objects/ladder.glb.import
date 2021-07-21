@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/book.glb-5becba61097a9d71baf37d7ba9ec8ac7.scn"
+path="res://.import/ladder.glb-3e9cc8c001d19a3ad00698a909f4f202.scn"
 
 [deps]
 
-source_file="res://book.glb"
-dest_files=[ "res://.import/book.glb-5becba61097a9d71baf37d7ba9ec8ac7.scn" ]
+source_file="res://objects/ladder.glb"
+dest_files=[ "res://.import/ladder.glb-3e9cc8c001d19a3ad00698a909f4f202.scn" ]
 
 [params]
 

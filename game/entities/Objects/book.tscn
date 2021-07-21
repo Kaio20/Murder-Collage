@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://book.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://objects/book.mesh" type="ArrayMesh" id=1]
 
 [node name="book" type="MeshInstance"]
 transform = Transform( -0.155, -1.36694e-08, 0, 5.05054e-08, -0.0419511, 0, 0, 0, 0.22, 13.6226, 0.976584, 6.48132 )

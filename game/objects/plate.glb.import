@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/lantern.glb-bf9a16104b6b2b76628bd6d84655d9ca.scn"
+path="res://.import/plate.glb-2cc46c95c28623a3c38d69c4d351d892.scn"
 
 [deps]
 
-source_file="res://lantern.glb"
-dest_files=[ "res://.import/lantern.glb-bf9a16104b6b2b76628bd6d84655d9ca.scn" ]
+source_file="res://objects/plate.glb"
+dest_files=[ "res://.import/plate.glb-2cc46c95c28623a3c38d69c4d351d892.scn" ]
 
 [params]
 

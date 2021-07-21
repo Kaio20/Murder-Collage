@@ -1,0 +1,8 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://objects/Suspects/Gertrude.jpg" type="Texture" id=1]
+
+[resource]
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 1 )

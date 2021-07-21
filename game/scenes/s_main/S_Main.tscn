@@ -1,22 +1,26 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://hearthing.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://objects/hearthing.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://lantern.glb" type="PackedScene" id=4]
+[ext_resource path="res://objects/lantern.glb" type="PackedScene" id=4]
 [ext_resource path="res://scenes/assets/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/s_main/materials/dark.material" type="Material" id=6]
 [ext_resource path="res://scenes/s_main/materials/blue.material" type="Material" id=7]
-[ext_resource path="res://walkingstick.glb" type="PackedScene" id=8]
+[ext_resource path="res://objects/walkingstick.glb" type="PackedScene" id=8]
 [ext_resource path="res://entities/Objects/Area.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/UI/StartGame.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/apartment.glb" type="PackedScene" id=11]
-[ext_resource path="res://plate.glb" type="PackedScene" id=12]
-[ext_resource path="res://book.glb" type="PackedScene" id=13]
-[ext_resource path="res://razor.glb" type="PackedScene" id=14]
-[ext_resource path="res://ladder.glb" type="PackedScene" id=15]
+[ext_resource path="res://objects/plate.glb" type="PackedScene" id=12]
+[ext_resource path="res://objects/book.glb" type="PackedScene" id=13]
+[ext_resource path="res://objects/razor.glb" type="PackedScene" id=14]
+[ext_resource path="res://objects/ladder.glb" type="PackedScene" id=15]
 [ext_resource path="res://entities/Objects/book.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/s_main/alwayscontrol.gd" type="Script" id=17]
+[ext_resource path="res://entities/Objects/1 bedre.mp3" type="AudioStream" id=18]
+[ext_resource path="res://objects/Suspects/Charles.PNG" type="Texture" id=19]
+[ext_resource path="res://objects/Suspects/Hans.jpg" type="Texture" id=20]
+[ext_resource path="res://objects/Suspects/suspect_spatialmaterial.tres" type="Material" id=21]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -53,6 +57,18 @@ albedo_color = Color( 0.211765, 0.462745, 0.309804, 1 )
 metallic_specular = 0.0
 roughness = 0.0
 
+[sub_resource type="QuadMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 20 )
+
+[sub_resource type="SpatialMaterial" id=11]
+params_billboard_mode = 2
+params_billboard_keep_scale = true
+albedo_texture = ExtResource( 19 )
+
 [node name="S_Main" type="Spatial"]
 script = ExtResource( 2 )
 
@@ -64,7 +80,7 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -5.10979, 3.19675, -10.9945 )
 [node name="Area3" parent="Explaniation" instance=ExtResource( 9 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.5248, 0.0471827, -1.47874 )
 titel = "book cover"
-description = "this wonderful book cover from the Codex Aureus Epternacensis with its gold shouldnt be on the floor or even in this apartment"
+description = "this wonderful book cover from the Codex Aureus Epternacensis with its gold shouldnt be on the floor or even in this apartment. Who dropped it?"
 museum = "germanisches nationalmuseum"
 
 [node name="Area4" parent="Explaniation" instance=ExtResource( 9 )]
@@ -93,7 +109,7 @@ museum = "Deutsches Museum"
 
 [node name="Area7" parent="Explaniation" instance=ExtResource( 9 )]
 transform = Transform( 1.63965, 0, 0, 0, 1.2442, 0, 0, 0, 0.54101, -8.23413, 0.829144, 0.364704 )
-titel = "Headframe from the Germania mine"
+titel = "Headframe from Germania mine"
 description = "Headframes were used to to enable the hoisting of machinery, personnel, or materials to the underground. This headframe is now the emblem of the Bergbau-Museum Bochum."
 museum = "Bergbau-Museum Bochum"
 
@@ -119,6 +135,24 @@ museum = "Deutsches Museum"
 transform = Transform( 1.4608, 0, 0.667736, 0, 1.2442, 0, -0.998254, 0, 1.18922, -8.58452, 0.0462114, -1.88146 )
 titel = "the victim"
 description = "the neighbors heard sounds and then one very loud sound together with a cry. After that they reported that they heard someone running away."
+museum = "our mind"
+
+[node name="Area" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( 1.37962, 0, -1.44798, 0, 3.5033, 0, 1.44798, 0, 1.37962, -6.46636, 0.718112, 1.71203 )
+titel = "suspect: Charles"
+description = "This town will occasionally get a visit from Charles, a filthy rich bachelor who spends all his time travelling and trading antique goods. Where he sources his valuable items - nobody knows. Could this be the suspect you are looking for discuss it with someone."
+museum = "our mind"
+
+[node name="Area13" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( 1.37962, 0, -1.44798, 0, 3.5033, 0, 1.44798, 0, 1.37962, -7.827, 0.718112, 2.48689 )
+titel = "suspect: Gertrude"
+description = "The local pastor, Gertrude is passionate about religion and morale. She believes that all religious relics belong in places of worship, not in museums and definitely not in private homes. Could this be the suspect you are looking for discuss it with someone."
+museum = "our mind"
+
+[node name="Area14" parent="Explaniation" instance=ExtResource( 9 )]
+transform = Transform( 0.449293, 0, -1.86138, 0, 3.5033, 0, 1.80001, 0, 0.169196, -8.14448, 0.718112, 0.967296 )
+titel = "suspect: Hans"
+description = "Hans is as old as time, you wouldn't believe it but he's still going strong working in the local mine. His mission in life is to expand his collectionof rare literature, he likes to brag about his first editions in the break room. Could this be the suspect you are looking for discuss it with someone."
 museum = "our mind"
 
 [node name="ArenaGeometry" type="Spatial" parent="."]
@@ -393,6 +427,15 @@ radius = 32.8756
 sides = 16
 material = SubResource( 8 )
 
+[node name="Spatial" type="Spatial" parent="apartment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50357, 1.32946, 0.824054 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="apartment/Spatial"]
+transform = Transform( 0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0.227253, 0, 0.287753 )
+stream = ExtResource( 18 )
+unit_size = 0.8
+autoplay = true
+
 [node name="Objects" type="Spatial" parent="."]
 transform = Transform( 0.692609, 0, 0.721313, 0, 1, 0, -0.721313, 0, 0.692609, -64.1852, 3.50252, -15.4102 )
 
@@ -477,5 +520,22 @@ use_collision = true
 width = 6.24743
 height = 2.09104
 depth = 0.952532
+
+[node name="suspects" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="suspects"]
+transform = Transform( 0.827131, 0, 0.910474, 0, 2, 0, -1.82095, 0, 0.413565, -44.866, 6.49097, -6.04778 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="suspects"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -43.5121, 6.49097, -0.511117 )
+mesh = SubResource( 9 )
+material/0 = ExtResource( 21 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="suspects"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -38.4117, 6.49097, -2.8421 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 11 )
 
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
