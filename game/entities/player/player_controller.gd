@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 			
 				#		print("true")
 			if (Input.is_action_pressed("leftclick")):
-				
+				UMG.visible = true
 				if not collider_pressed == collider:
 				
 					collider_titel = collider.get("titel")
@@ -92,7 +92,7 @@ func _process(_delta: float) -> void:
 						
 					collider_pressed = collider
 								#	print(collider.name)
-					UMG.visible = true
+									
 		else: 
 			UMG.visible = false
 		pass
@@ -214,7 +214,7 @@ func camera_rotation() -> void:
 		
 		# Clamp mouse rotation
 		var temp_rot: Vector3 = head.rotation_degrees
-		temp_rot.x = clamp(temp_rot.x, -50, 40)
+		temp_rot.x = clamp(temp_rot.x, -80, 40)
 		head.rotation_degrees = temp_rot
 
 func can_sprint() -> bool:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://hearthing.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://razor.glb" type="PackedScene" id=14]
 [ext_resource path="res://ladder.glb" type="PackedScene" id=15]
 [ext_resource path="res://entities/Objects/book.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/s_main/alwayscontrol.gd" type="Script" id=17]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -110,7 +111,7 @@ museum = "Deutsches Museum"
 
 [node name="Area10" parent="Explaniation" instance=ExtResource( 9 )]
 transform = Transform( 1.45413, 0, 0.664688, 0, 1.2442, 0, -0.789165, 0, 0.940132, -9.28484, 0.0462115, -1.44379 )
-titel = "Telefunken Zerzola II"
+titel = "Wanderstock"
 description = "this walking stick is used to lift weight from the shoulder and thats how it helps older people wander through the mountains. Shouldn't it be on the door or why is it here"
 museum = "Deutsches Museum"
 
@@ -146,6 +147,198 @@ material/0 = ExtResource( 7 )
 [node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall1/StaticBody"]
 shape = SubResource( 4 )
 
+[node name="Wall8" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 0.219975, 0, 0, 0, -1.74846e-06, -6, 0, 13.4455, -8.81583e-08, -44.1795, 6.96595, -11.1602 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall8"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall8/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall9" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -48.468, 7.64954, -8.40255 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall9"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall9/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall10" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -32.7829, 7.64954, -8.40255 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall10"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall10/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall11" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -51.1792, 7.64954, -30.856 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall11"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall11/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall13" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -3.5283e-09, 4.93373, -9.62376e-08, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -42.4571, 2.9918, -33.72 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall13"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall13/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall14" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -0.219873, 0.149808, -2.92216e-09, 0, -5.87721e-07, -6, -0.00667932, -4.93146, 9.61932e-08, -44.7936, 2.9918, -33.72 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall14"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall14/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall15" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -0.219873, 0.149808, -2.92216e-09, 0, -5.87721e-07, -6, -0.00667932, -4.93146, 9.61932e-08, -40.2816, 2.9918, -33.72 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall15"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall15/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall12" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -9.61539e-09, 13.4455, -2.62268e-07, 0, -5.87721e-07, -6, -0.219975, -5.87721e-07, 1.14641e-14, -33.391, 7.3067, -30.8136 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall12"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall12/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall2" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 11.8036, -7.73929e-08, -37.9602, 6.96595, -13.6899 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall2/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall16" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 11.8036, -7.73929e-08, -37.3102, 6.96595, -24.5492 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall16"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall16/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall17" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 0.693125, 8.50824, -5.57862e-08, 0, -1.74846e-06, -6, -0.720817, 8.18137, -5.3643e-08, -35.595, 7.36585, -26.7951 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall17"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall17/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall3" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 26.2296, -1.7198e-07, -54.0238, 6.96595, -22.0653 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall3/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall4" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 1.36747, 0, 0, 0, -8.07478e-07, -2.77094, 0, 12.3061, -8.06876e-08, -52.7908, 4.69685, -11.9738 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall4/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall5" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -1.11253, 3.9685, -2.60204e-08, 0, -8.07478e-07, -2.77094, -2.1208, -2.34854, 1.53988e-08, -46.1525, 4.69685, -9.78424 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall5"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall5/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall6" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( -1.11253, 3.9685, -2.60204e-08, 0, -8.07478e-07, -2.77094, -2.1208, -2.34854, 1.53988e-08, -46.1525, 4.69685, -9.78424 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall6"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall6/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Wall7" type="MeshInstance" parent="ArenaGeometry"]
+transform = Transform( 0.00800061, 4.60607, -3.02007e-08, 0, -8.07478e-07, -2.77094, -2.39488, -0.220832, 1.44794e-09, -50.8898, 4.69685, -8.29355 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = ExtResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall7"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall7/StaticBody"]
+shape = SubResource( 4 )
+
 [node name="Lighting" type="Spatial" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
@@ -166,6 +359,21 @@ text = "Move forward by pressing and holding the right mouse button
 and looking in the desired direction
 FPS:"
 enabled = false
+
+[node name="Control" type="Control" parent="."]
+margin_left = -67.0
+margin_top = -44.0
+margin_right = 1648.0
+margin_bottom = 963.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+margin_right = 1765.0
+margin_bottom = 1042.0
+flat = true
 
 [node name="Start Menu for HTML" parent="." instance=ExtResource( 10 )]
 
@@ -211,5 +419,63 @@ transform = Transform( 0.3, 0, 0, 0, 0.04, 0, 1.49012e-08, 0, 0.35, 19.7987, 0.9
 [node name="walkingstick" parent="Objects" instance=ExtResource( 8 )]
 transform = Transform( 0.968457, 0, 0.24918, 0, 1, 0, -0.24918, 0, 0.968457, -0.834419, 0, 4.33154 )
 
-[node name="ladder" parent="." instance=ExtResource( 15 )]
-transform = Transform( 0.0818167, 0, -0.996647, -0.28423, 0.958472, -0.023333, 0.955259, 0.285187, 0.0784191, -40.6214, 6.89844, -46.3633 )
+[node name="ladder" parent="Objects" instance=ExtResource( 15 )]
+transform = Transform( -0.632374, -0.205709, -0.746852, -0.28423, 0.958472, -0.023333, 0.720636, 0.197523, -0.664581, 38.6474, 3.39592, -4.44146 )
+
+[node name="colision" type="Spatial" parent="."]
+visible = false
+
+[node name="CSGBox" type="CSGBox" parent="colision"]
+transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -46.422, 5.25737, -25.4899 )
+use_collision = true
+height = 1.27594
+depth = 6.60655
+
+[node name="CSGBox2" type="CSGBox" parent="colision"]
+transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -50.1718, 4.75864, -25.4899 )
+use_collision = true
+height = 1.27594
+depth = 6.60655
+
+[node name="CSGBox3" type="CSGBox" parent="colision"]
+transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -53.37, 4.75864, -23.508 )
+use_collision = true
+height = 1.27594
+depth = 6.60655
+
+[node name="CSGBox4" type="CSGBox" parent="colision"]
+transform = Transform( 0.892204, 0.0207167, 0.451157, -0.00579328, 0.99939, -0.0344344, -0.451596, 0.0281088, 0.89178, -52.3141, 4.75864, -30.4235 )
+use_collision = true
+width = 5.95937
+height = 3.41351
+depth = 6.60655
+
+[node name="CSGBox5" type="CSGBox" parent="colision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4566, 7.03374, -18.2344 )
+use_collision = true
+width = 1.49326
+height = 5.0456
+depth = 0.362256
+
+[node name="CSGBox6" type="CSGBox" parent="colision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4451, 4.99211, -18.1868 )
+use_collision = true
+width = 6.24743
+height = 2.09104
+depth = 0.952532
+
+[node name="CSGBox8" type="CSGBox" parent="colision"]
+transform = Transform( 0.246372, 0, 0, 0, 1, 0, 0, 0, 1, -42.8427, 4.99211, -9.34538 )
+use_collision = true
+width = 6.24743
+height = 2.09104
+depth = 0.952532
+
+[node name="CSGBox7" type="CSGBox" parent="colision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.4451, 4.99211, -8.93519 )
+use_collision = true
+width = 6.24743
+height = 2.09104
+depth = 0.952532
+
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
