@@ -219,7 +219,7 @@ museum = "our mind"
 
 [node name="Area15" parent="Explaniation" instance=ExtResource( 9 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.9268, 0.796284, -7.24019 )
-titel = "sign "
+titel = "wander parking sign "
 description = "a sign for parking your car if you plan on wandering here. Seems to be a nice spot to get into your wanderboots."
 museum = "Germanisches Nationalmuseum"
 
